@@ -46,7 +46,17 @@ function getCurrentWeather() {
     .then((response) => response.json())
     .then(function (data) {
       console.log(data);
-      document.getElementById("current-temp").innerHTML = data.main.temp + "°C";
+      document.getElementById("current-temp").innerHTML =
+        Math.round(data.main.temp) + "°C";
+      let condIcon = document.createElement("img");
+      console.log(data.weather);
+      let iconCode = "";
+      iconCode = data.weather[0].icon;
+      condIcon.setAttribute(
+        "src",
+        `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+      );
+      document.getElementById("city-div").append(condIcon);
     })
     .catch(function () {});
 }
