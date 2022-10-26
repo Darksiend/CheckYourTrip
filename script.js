@@ -9,6 +9,18 @@ inputField.addEventListener("input", function () {
 
 const APIWeatherKey = "abe55f95b925a7dd5653ef7f8147bd6b";
 
+//let curWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIWeatherKey}`;
+
 function getCity() {}
 
-function getWeather() {}
+function getWeather() {
+  let city = "london";
+  fetch(
+    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIWeatherKey}`
+  )
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+  console.log(response);
+}
+
+getWeather();
