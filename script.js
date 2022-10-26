@@ -19,8 +19,11 @@ function getWeather() {
     `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIWeatherKey}`
   )
     .then((response) => response.json())
-    .then((data) => console.log(data));
-  console.log(response);
+    .then(function (data) {
+      console.log(data);
+      document.getElementById("city-name").innerHTML = data[0].name;
+    })
+    .catch(function () {});
 }
 
 getWeather();
