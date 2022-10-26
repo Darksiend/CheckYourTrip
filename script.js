@@ -7,4 +7,8 @@ inputField.addEventListener("input", function () {
   }
 });
 
-let APIWeatherKey = "abe55f95b925a7dd5653ef7f8147bd6b";
+const APIWeatherKey = "abe55f95b925a7dd5653ef7f8147bd6b";
+
+function getCity() {}
+
+function getWeather() {}

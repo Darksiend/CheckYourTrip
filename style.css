@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
@@ -22,6 +25,13 @@ body {
 
 #submit-button {
   height: 50px;
+  border: none;
+  outline: none;
+  background-color: orange;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: white;
 }
 
 #input-city-form {
