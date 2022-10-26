@@ -11,6 +11,8 @@ body {
   background-color: lightblue;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #input-city {
@@ -37,4 +39,10 @@ body {
 #input-city-form {
   display: flex;
   flex-direction: column;
+}
+
+#city-div {
+  width: 80%;
+  height: 500px;
+  border: 1px solid red;
 }
