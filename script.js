@@ -11,7 +11,6 @@ inpuCityForm.addEventListener("submit", getCity);
 
 const APIWeatherKey = "abe55f95b925a7dd5653ef7f8147bd6b";
 
-//let curWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIWeatherKey}`;
 let city = "";
 function getCity(event) {
   event.preventDefault(event);
