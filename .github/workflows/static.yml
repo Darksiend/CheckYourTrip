@@ -25,7 +25,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.step_name.outputs.url_output }}
+      url: "CheckMyTrip"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
