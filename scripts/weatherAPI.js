@@ -10,7 +10,6 @@ function getCity(event) {
   } else {
     event.preventDefault(event);
     city = inputField.value;
-    console.log(`City: ${city}`);
     getWeather();
   }
 }
@@ -25,7 +24,6 @@ function getWeather() {
       console.log(data);
       document.getElementById("city-name").innerHTML = data[0].name;
       lat = data[0].lat;
-
       lon = data[0].lon;
       getCurrentWeather().catch(function () {});
     })
@@ -34,17 +32,14 @@ function getWeather() {
 }
 
 function getCurrentWeather() {
-  console.log("Gettin Current Weather");
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIWeatherKey}&units=metric`
   )
     .then((response) => response.json())
     .then(function (data) {
-      console.log(data);
       document.getElementById("current-temp").innerHTML =
         Math.round(data.main.temp) + "°C";
       let condIcon = document.createElement("img");
-      console.log(data.weather);
       let iconCode = "";
       iconCode = data.weather[0].icon;
       condIcon.setAttribute(
