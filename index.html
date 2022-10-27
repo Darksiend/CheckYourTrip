@@ -9,11 +9,16 @@
   </head>
   <body>
     <form id="input-city-form" action="">
-      <input type="text" id="input-city" />
+      <input type="text" id="input-city" autocomplete="off" />
       <input type="submit" value="Check My Trip!" id="submit-button" />
     </form>
     <div id="city-div">
       <h1 id="city-name">In</h1>
+      <ul id="autocomplite-list">
+        <li>Moscow</li>
+        <li>Samara</li>
+        <li>Kaliningrad</li>
+      </ul>
       <div id="current-temp"></div>
     </div>
   </body>
