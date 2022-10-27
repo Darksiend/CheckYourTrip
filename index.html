@@ -6,21 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CheckMyTrip</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjD3-BRNdly2U2_kQstobPNSALiD8aZCs&libraries=places"></script>
   </head>
   <body>
     <form id="input-city-form" action="">
-      <input type="text" id="input-city" autocomplete="off" />
+      <input
+        type="text"
+        id="input-city"
+        placeholder="Where you want to trip?"
+      />
       <input type="submit" value="Check My Trip!" id="submit-button" />
     </form>
     <div id="city-div">
-      <h1 id="city-name">In</h1>
-      <ul id="autocomplite-list">
-        <li>Moscow</li>
-        <li>Samara</li>
-        <li>Kaliningrad</li>
-      </ul>
+      <span>In</span>
+      <h1 id="city-name"></h1>
+      <span>current temp</span>
       <div id="current-temp"></div>
     </div>
   </body>
   <script src="script.js"></script>
+
+  <script src="googleMapsApi.js"></script>
 </html>

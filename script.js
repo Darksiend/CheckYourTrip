@@ -61,3 +61,7 @@ function getCurrentWeather() {
 }
 
 //getWeather();
+
+//Autocomplite
+
+function initMap() {} // now it IS a function and it is in global
