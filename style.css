@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -13,6 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 600px;
 }
 
 #input-city {
@@ -23,8 +24,18 @@ body {
   font-size: 16px;
   padding-left: 10px;
   margin-top: 25px;
+  width: 100%;
+}
+#logo-container {
+  font-size: 70px;
+  font-family: "Bebas Neue", cursive;
+  display: flex;
+  align-items: center;
 }
 
+#plane {
+  padding-left: 10px;
+}
 #submit-button {
   height: 50px;
   border: none;
@@ -39,6 +50,7 @@ body {
 #input-city-form {
   display: flex;
   flex-direction: column;
+  width: 60%;
 }
 
 #city-div {
