@@ -5,10 +5,14 @@ inpuCityForm.addEventListener("submit", getCity);
 
 let city = "";
 function getCity(event) {
-  event.preventDefault(event);
-  city = inputField.value;
-  console.log(`City: ${city}`);
-  getWeather();
+  if (inputField.value == "") {
+    event.preventDefault(event);
+  } else {
+    event.preventDefault(event);
+    city = inputField.value;
+    console.log(`City: ${city}`);
+    getWeather();
+  }
 }
 let lat = 0;
 let lon = 0;

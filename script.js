@@ -7,8 +7,16 @@ inputField.addEventListener("input", function () {
   }
 });
 
-//getWeather();
+document
+  .getElementById("submit-button")
+  .addEventListener("mouseover", function () {
+    document.getElementById("submit-button");
+    event.target.value = "Take Me to trip!";
+  });
 
-//Autocomplite
-
-function initMap() {} // now it IS a function and it is in global
+document
+  .getElementById("submit-button")
+  .addEventListener("mouseout", function () {
+    document.getElementById("submit-button");
+    event.target.value = "Check My Trip!";
+  });
