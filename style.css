@@ -58,6 +58,11 @@ body {
   font-weight: bold;
 }
 
+#city-name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
 #autocomplite-list {
   list-style-type: none;
   display: none;
