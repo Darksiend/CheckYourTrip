@@ -56,7 +56,11 @@ function getCoords() {
     .then((response) => response.json())
     .then(function (data) {
       console.log(data);
-      document.getElementById("city-name").innerHTML = data[0].name;
+      //document.getElementById("city-name").innerHTML = data[0].name;
+      for (i = 0; i < document.querySelectorAll(".city-name").length; i++) {
+        document.querySelectorAll(".city-name")[i].innerHTML = data[0].name;
+      }
+
       countryID = data[0].country;
       lat = data[0].lat;
       lon = data[0].lon;
@@ -83,7 +87,7 @@ function getCurrentWeather() {
         "src",
         `http://openweathermap.org/img/wn/${iconCode}@2x.png`
       );
-      document.getElementById("city-div").append(condIcon);
+      document.getElementById("current-temp").append(condIcon);
     })
     .catch(function () {});
 }
