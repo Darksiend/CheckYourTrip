@@ -65,12 +65,16 @@ body {
 #city-div {
   width: 80%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   height: 600px;
   justify-content: center;
 }
-
+.text-in-city-div {
+  font-size: 45px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 #city-div span {
   font-size: 30px;
   font-weight: bold;
@@ -82,8 +86,9 @@ body {
 }
 
 #city-name {
-  font-size: 30px;
+  font-size: 90px;
   font-weight: bold;
+  padding-top: 30px;
 }
 
 #autocomplite-list {
@@ -104,6 +109,10 @@ body {
   cursor: pointer;
 }
 
+#country-name {
+  font-size: 40px;
+}
+
 #about-country {
   display: flex;
 }
@@ -113,4 +122,9 @@ body {
   height: 100px;
 
   background-size: 200px 100px;
+}
+
+#country-name-and-flag-container {
+  border: 1px solid red;
+  display: flex;
 }
