@@ -2,7 +2,8 @@ let inpuCityForm = document.getElementById("input-city-form");
 const APIWeatherKey = "abe55f95b925a7dd5653ef7f8147bd6b";
 
 inpuCityForm.addEventListener("submit", getCity);
-
+let temps = new Array();
+let labelsArr = new Array();
 let city = "";
 let country = "";
 let countryID = "";
@@ -45,8 +46,7 @@ function getCountryDetails() {
       document.getElementById("country-name").innerHTML = response.data.name;
       console.log(currency);
       console.log(response);
-    })
-    .catch((err) => console.error(err));
+    });
 }
 
 function getCoords() {
@@ -66,9 +66,8 @@ function getCoords() {
       lon = data[0].lon;
       countryID = data[0].country.toUpperCase();
       getCountryDetails();
-      getCurrentWeather().catch(function () {});
+      getCurrentWeather().catch((err) => console.error(err));
     })
-    .then()
     .catch(function () {});
 }
 
@@ -89,7 +88,50 @@ function getCurrentWeather() {
       );
       document.getElementById("current-temp").append(condIcon);
     })
-    .catch(function () {});
+    .then(getWeatherForChart)
+    .catch((err) => console.error(err));
 }
 //api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
-function getWeeklyForecast() {}
+function createChart() {
+  const data = {
+    datasets: [
+      {
+        label: "My First dataset",
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgb(255, 99, 132)",
+        data: temps,
+      },
+    ],
+  };
+
+  data.labels = labelsArr;
+
+  console.log(data);
+
+  const config = {
+    type: "line",
+    data: data,
+    options: {},
+  };
+  const myChart = new Chart(document.getElementById("myChart"), config);
+}
+
+function getWeatherForChart() {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIWeatherKey}&units=metric`
+  )
+    .then((response) => response.json())
+    .then(function (data) {
+      console.log(data.list);
+      for (i = 0; i < data.list.length; i++) {
+        //    let obj = { x: data.list[i].main.temp, y: data.list[i].dt_txt };
+        //  let obj = { x: data.list[i].main.temp, y: i };
+        temps.push(data.list[i].main.temp);
+        labelsArr.push(data.list[i].dt_txt);
+        //2022-10-29 00:00:00"
+      }
+      console.log(temps);
+    })
+    .then(createChart)
+    .catch((err) => console.error(err));
+}

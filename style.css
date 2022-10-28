@@ -13,7 +13,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  height: 2000px;
+  height: 3000px;
 }
 
 #input-city {
@@ -169,4 +169,14 @@ body {
   border: 1px solid orange;
   border-radius: 5px;
   font-size: 24px;
+}
+
+#myChart {
+  width: 80%;
+}
+
+#mychart-container {
+  width: 100%;
+  height: 500px;
+  border: 1px red solid;
 }
