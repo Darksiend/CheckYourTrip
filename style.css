@@ -67,7 +67,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  height: 600px;
   justify-content: center;
 }
 
@@ -102,4 +102,15 @@ body {
 
 #autocomplite-list button:hover {
   cursor: pointer;
+}
+
+#about-country {
+  display: flex;
+}
+
+#flag-of-country {
+  width: 180px;
+  height: 100px;
+
+  background-size: 200px 100px;
 }

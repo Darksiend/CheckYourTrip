@@ -7,7 +7,7 @@
     <title>CheckMyTrip.</title>
     <link rel="stylesheet" href="style.css" />
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjD3-BRNdly2U2_kQstobPNSALiD8aZCs&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjD3-BRNdly2U2_kQstobPNSALiD8aZCs&libraries=places&language=en"></script>
   </head>
   <body>
     <div id="logo-container">
@@ -24,9 +24,12 @@
       <input type="submit" value="Check My Trip!" id="submit-button" />
     </form>
     <div id="city-div">
-      <span>&nbsp</span>
+      <div id="country-name"></div>
+      <div id="about-country">
+        <div id="flag-of-country"></div>
+        <div id="currency-of-country"></div>
+      </div>
       <div id="city-name"></div>
-      <span>&nbsp</span>
       <div id="current-temp"></div>
     </div>
   </body>
