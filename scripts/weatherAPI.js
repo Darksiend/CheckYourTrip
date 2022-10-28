@@ -91,3 +91,5 @@ function getCurrentWeather() {
     })
     .catch(function () {});
 }
+//api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
+function getWeeklyForecast() {}
