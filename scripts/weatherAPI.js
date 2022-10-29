@@ -17,6 +17,10 @@ function getCity(event) {
     city = inputField.value;
     console.log(inputField.value);
     getCoords();
+    turnSpinner();
+    setTimeout(function () {
+      turnDisplay("city-div");
+    }, 1500);
   }
 }
 
@@ -167,4 +171,16 @@ function validateDateOfForecast(elem) {
   console.log(date);
   dateTime = date + " " + time;
   return dateTime;
+}
+
+function turnDisplay(id) {
+  let spinner = document.getElementById("donut");
+  spinner.style.display = "none";
+  let el = document.getElementById(id);
+  el.style.display = "flex";
+}
+
+function turnSpinner() {
+  let spinner = document.getElementById("donut");
+  spinner.style.display = "inline-block";
 }
