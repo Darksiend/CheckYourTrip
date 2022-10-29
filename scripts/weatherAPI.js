@@ -103,10 +103,9 @@ function createChart() {
         backgroundColor: "#FFB52E",
         borderColor: "#FFB52E",
         data: temps,
-        fill: "start",
+        fill: "none",
         tension: 0.4,
         pointStyle: "rectRounded",
-        titleAlignment: "start",
       },
     ],
   };
