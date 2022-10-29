@@ -9,6 +9,7 @@ let country = "";
 let countryID = "";
 let lat = 0;
 let lon = 0;
+let currency = "";
 function getCity(event) {
   if (inputField.value == "") {
     event.preventDefault(event);
@@ -39,7 +40,6 @@ function getCountryDetails() {
   )
     .then((response) => response.json())
     .then(function (response) {
-      let currency = "";
       currency = response.data.currencyCodes[0];
       console.log(response.data.flagImageUri);
       document.getElementById(
@@ -47,9 +47,14 @@ function getCountryDetails() {
       ).style.backgroundImage = `url(${response.data.flagImageUri})`;
 
       document.getElementById("currency-of-country").innerHTML = currency;
-      document.getElementById("country-name").innerHTML = response.data.name;
+      // document.getElementById("country-name").innerHTML = response.data.name;
+      for (i = 0; i < document.querySelectorAll(".country-name").length; i++) {
+        document.querySelectorAll(".country-name")[i].innerHTML =
+          response.data.name;
+      }
       console.log(currency);
       console.log(response);
+      getExchangeRate();
     });
 }
 
@@ -112,8 +117,6 @@ function createChart() {
 
   data.labels = labelsArr;
 
-  console.log(data);
-
   const config = {
     type: "line",
     data: data,
@@ -136,11 +139,10 @@ function getWeatherForChart() {
   )
     .then((response) => response.json())
     .then(function (data) {
-      console.log(data.list);
       for (i = 0; i < data.list.length; i++) {
         //    let obj = { x: data.list[i].main.temp, y: data.list[i].dt_txt };
         //  let obj = { x: data.list[i].main.temp, y: i };
-        temps.push(data.list[i].main.temp);
+        temps.push(Math.round(data.list[i].main.temp));
         labelsArr.push(validateDateOfForecast(data.list[i].dt_txt));
         //2022-10-29 00:00:00"
       }
@@ -185,4 +187,26 @@ function turnDisplay(id) {
 function turnSpinner() {
   let spinner = document.getElementById("donut");
   spinner.style.display = "inline-block";
+}
+
+function getExchangeRate() {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "75882334a2mshe48f433583c7d92p16dc85jsn98c3fe3ab2d2",
+      "X-RapidAPI-Host":
+        "currency-conversion-and-exchange-rates.p.rapidapi.com",
+    },
+  };
+
+  fetch(
+    `https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=ILS&to=${currency}&amount=100`,
+    options
+  )
+    .then((response) => response.json())
+    .then(function (response) {
+      console.log(response);
+      document.getElementById("currency-amount").innerHTML = response.result;
+    })
+    .catch((err) => console.error(err));
 }
