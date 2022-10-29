@@ -199,3 +199,59 @@ body {
   animation: donut-spin 1.2s linear infinite;
   margin-top: 60px;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #logo-container {
+    font-size: 40px;
+    width: 90%;
+    justify-content: space-between;
+  }
+  #input-city-form {
+    width: 95%;
+    margin-top: 100px;
+  }
+  .city-name {
+    font-size: 44px;
+    padding-top: 10px;
+  }
+
+  .city-name-small {
+    font-size: 20px;
+    font-weight: normal;
+  }
+  #country-name {
+    font-size: 30px;
+  }
+  #flag-of-country {
+    width: 100px;
+    height: 50px;
+    background-size: 100px 50px;
+  }
+
+  #current-temp-container {
+    flex-direction: column;
+    margin-top: 25px;
+  }
+
+  #current-temp {
+    margin-top: 20px;
+  }
+
+  #mychart-container {
+    width: 375px;
+    height: 400px;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

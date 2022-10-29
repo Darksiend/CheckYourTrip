@@ -119,6 +119,7 @@ function createChart() {
     type: "line",
     data: data,
     options: {
+      maintainAspectRatio: false,
       plugins: {
         title: {
           display: true,
@@ -176,6 +177,8 @@ function validateDateOfForecast(elem) {
 function turnDisplay(id) {
   let spinner = document.getElementById("donut");
   spinner.style.display = "none";
+  document.getElementById("input-city-form").style.display = "none";
+
   let el = document.getElementById(id);
   el.style.display = "flex";
 }
