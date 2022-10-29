@@ -13,7 +13,6 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  height: 1000px;
 }
 
 #input-city {
@@ -63,11 +62,11 @@ body {
 }
 
 #city-div {
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 600px;
+
   justify-content: space-evenly;
   margin-top: 50px;
 }
@@ -179,6 +178,6 @@ body {
 #mychart-container {
   width: 100%;
   height: 500px;
-  border: 1px red solid;
+
   margin-top: 100px;
 }

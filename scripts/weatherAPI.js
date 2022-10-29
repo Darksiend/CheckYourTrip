@@ -96,10 +96,13 @@ function createChart() {
   const data = {
     datasets: [
       {
-        label: "My First dataset",
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "#FFB52E",
+        borderColor: "#FFB52E",
         data: temps,
+        fill: "start",
+        tension: 0.4,
+        pointStyle: "rectRounded",
+        titleAlignment: "start",
       },
     ],
   };
@@ -111,7 +114,14 @@ function createChart() {
   const config = {
     type: "line",
     data: data,
-    options: {},
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: "Hourly forecast to 5 days in your destonation.",
+        },
+      },
+    },
   };
   const myChart = new Chart(document.getElementById("myChart"), config);
 }
@@ -127,11 +137,34 @@ function getWeatherForChart() {
         //    let obj = { x: data.list[i].main.temp, y: data.list[i].dt_txt };
         //  let obj = { x: data.list[i].main.temp, y: i };
         temps.push(data.list[i].main.temp);
-        labelsArr.push(data.list[i].dt_txt);
+        labelsArr.push(validateDateOfForecast(data.list[i].dt_txt));
         //2022-10-29 00:00:00"
       }
       console.log(temps);
     })
     .then(createChart)
     .catch((err) => console.error(err));
+}
+
+function validateDateOfForecast(elem) {
+  let mounths = {
+    1: "January",
+    2: "February",
+    3: "March",
+    4: "April",
+    5: "May",
+    6: "June",
+    7: "July",
+    8: "August",
+    9: "September",
+    10: "October",
+    11: "November",
+    12: "December",
+  };
+  let time = elem.split(" ")[1].split(":").slice(0, 2).join(":");
+  let date = elem.split(" ")[0].split("-").slice(1, 3);
+  date[0] = mounths[date[0]];
+  console.log(date);
+  dateTime = date + " " + time;
+  return dateTime;
 }
