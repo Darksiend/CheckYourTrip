@@ -18,7 +18,6 @@ body {
 #input-city {
   border: none;
   outline: none;
-  width: 300px;
   height: 50px;
   font-size: 16px;
   padding-left: 10px;
@@ -116,23 +115,6 @@ body {
   margin-right: 5px;
 }
 
-#autocomplite-list {
-  list-style-type: none;
-  display: none;
-}
-
-#autocomplite-list button {
-  width: 100%;
-  height: 50px;
-  border: none;
-  outline: none;
-  border: 1px solid wheat;
-  font-size: 20px;
-}
-
-#autocomplite-list button:hover {
-  cursor: pointer;
-}
 
 #country-name {
   font-size: 40px;
@@ -140,14 +122,27 @@ body {
 
 .currency-of-country-text {
   display: flex;
+}
+
+.currency-of-country-text .country-name{
+margin-left: 4px;
+}
+
+.currency-of-country-text #currency-amount{
+  margin-left: 5px;
   margin-right: 5px;
 }
 
 #about-country {
   display: flex;
-  width: 80%;
+  width: 60%;
   flex-direction: column;
   align-items: center;
+  border: 5px solid orange;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 #flag-of-country {

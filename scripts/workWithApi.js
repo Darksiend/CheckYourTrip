@@ -2,16 +2,16 @@ let inpuCityForm = document.getElementById("input-city-form");
 const APIWeatherKey = "abe55f95b925a7dd5653ef7f8147bd6b";
 
 inpuCityForm.addEventListener("submit", getCity);
-let temps = new Array();
-let labelsArr = new Array();
+let temps = [];
+let labelsArr = [];
 let city = "";
-let country = "";
 let countryID = "";
 let lat = 0;
 let lon = 0;
 let currency = "";
+
 function getCity(event) {
-  if (inputField.value == "") {
+  if (inputField.value === "") {
     event.preventDefault(event);
   } else {
     event.preventDefault(event);
@@ -100,6 +100,7 @@ async function getCurrentWeather() {
     .then(getWeatherForChart)
     .catch((err) => console.error(err));
 }
+
 //api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
 async function createChart() {
   const data = {
@@ -153,7 +154,7 @@ async function getWeatherForChart() {
 }
 
 function validateDateOfForecast(elem) {
-  let mounths = {
+  let months = {
     1: "January",
     2: "February",
     3: "March",
@@ -169,7 +170,7 @@ function validateDateOfForecast(elem) {
   };
   let time = elem.split(" ")[1].split(":").slice(0, 2).join(":");
   let date = elem.split(" ")[0].split("-").slice(1, 3);
-  date[0] = mounths[date[0]];
+  date[0] = months[date[0]];
   console.log(date);
   dateTime = date + " " + time;
   return dateTime;
@@ -208,5 +209,6 @@ async function getExchangeRate() {
       console.log(response);
       document.getElementById("currency-amount").innerHTML = response.result;
     })
+
     .catch((err) => console.error(err));
 }
