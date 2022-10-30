@@ -125,6 +125,9 @@ body {
   font-size: 24px;
   align-items: center;
   width: 80%;
+  justify-content: center
+
+
 }
 
 .currency-of-country-text .country-name{
@@ -145,6 +148,7 @@ margin-left: 4px;
 .currency-in-container .country-name {
   margin-left: 5px;
   margin-right: 5px;
+  font-size: 16px;
 }
 
 #currency-amount{
@@ -231,6 +235,7 @@ margin-left: 4px;
 
 #exchange-input{
   height: 50px;
+  width: 50px;
 }
 
 #full-name-currency {
@@ -254,6 +259,7 @@ margin-left: 4px;
   height: 130px;
   animation: donut-spin 1.2s linear infinite;
   margin-top: 60px;
+
 }
 
 
@@ -264,6 +270,9 @@ margin-left: 4px;
     font-size: 40px;
     width: 90%;
     justify-content: space-between;
+  }
+  .currency-in-container {
+    font-size: 16px;
   }
   #input-city-form {
     width: 95%;
