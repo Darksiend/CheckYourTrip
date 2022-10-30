@@ -46,14 +46,15 @@
       <div id="mychart-container">
         <canvas id="myChart"></canvas>
       </div>
-      <div id="about-country">
-        <div class="currency-of-country-text">
-          Currency in
-          <div class="country-name"></div>
-        </div>
+<div class="currency-in-container" >Currency in <div class="country-name"></div> is <div id="full-name-currency"></div></div>
 
-        <div class="currency-of-country-text">
-          100 Shekel its
+        <div class="currency-of-country-text currency-of-country-container">
+          <input type="text" value="100" id="exchange-input" />
+          <select name="symbol-picker" id="symbol-picker"></select
+          ><button id="convert-button" onclick="getExchangeRate()">
+            Convert!
+          </button>
+
           <div id="currency-amount"></div>
           <div id="currency-of-country"></div>
         </div>

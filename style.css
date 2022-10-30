@@ -116,12 +116,15 @@ body {
 }
 
 
-#country-name {
-  font-size: 40px;
+.country-name {
+  font-size: 28px;
 }
 
 .currency-of-country-text {
   display: flex;
+  font-size: 24px;
+  align-items: center;
+  width: 80%;
 }
 
 .currency-of-country-text .country-name{
@@ -129,8 +132,27 @@ margin-left: 4px;
 }
 
 .currency-of-country-text #currency-amount{
+  margin-right: 5px;
+}
+
+.currency-in-container {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  margin-top: 70px;
+}
+
+.currency-in-container .country-name {
   margin-left: 5px;
   margin-right: 5px;
+}
+
+#currency-amount{
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center
 }
 
 #about-country {
@@ -143,6 +165,7 @@ margin-left: 4px;
   padding-bottom: 50px;
   margin-top: 50px;
   margin-bottom: 50px;
+  border-radius: 8px;
 }
 
 #flag-of-country {
@@ -156,6 +179,7 @@ margin-left: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .weekly-forecast-container {
@@ -174,6 +198,22 @@ margin-left: 4px;
   font-size: 24px;
 }
 
+#convert-button{
+  height: 50px;
+  width: 100px;
+  background-color: orange;
+  font-size: 24px;
+  color: white;
+}
+
+.currency-of-country-container{
+  margin-top: 20px;
+  margin-bottom: 100px;
+  width: 70%;
+}
+
+
+
 #myChart {
   width: 80%;
 }
@@ -183,6 +223,18 @@ margin-left: 4px;
   height: 500px;
 
   margin-top: 25px;
+}
+
+#symbol-picker{
+  height: 50px;
+}
+
+#exchange-input{
+  height: 50px;
+}
+
+#full-name-currency {
+  margin-left: 5px;
 }
 
 @keyframes donut-spin {
@@ -203,6 +255,8 @@ margin-left: 4px;
   animation: donut-spin 1.2s linear infinite;
   margin-top: 60px;
 }
+
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

@@ -9,6 +9,7 @@ let countryID = "";
 let lat = 0;
 let lon = 0;
 let currency = "";
+let allSymbols = [];
 
 function getCity(event) {
   if (inputField.value === "") {
@@ -19,6 +20,7 @@ function getCity(event) {
     console.log(inputField.value);
     getCoords();
     turnSpinner();
+    getAllSymbols();
     setTimeout(function () {
       turnDisplay("city-div");
     }, 1500);
@@ -54,7 +56,6 @@ async function getCountryDetails() {
       }
       console.log(currency);
       console.log(response);
-      getExchangeRate();
     });
 }
 
@@ -77,7 +78,7 @@ async function getCoords() {
       getCountryDetails();
       getCurrentWeather().catch((err) => console.error(err));
     })
-    .catch(function () {});
+    .catch((err) => console.error(err));
 }
 
 async function getCurrentWeather() {
@@ -191,6 +192,13 @@ function turnSpinner() {
 }
 
 async function getExchangeRate() {
+  let amount = document.getElementById("exchange-input").value;
+
+  let pickedCur =
+    allSymbols[document.getElementById("symbol-picker").selectedIndex];
+  console.log("amount", amount);
+  console.log("pickedCur", pickedCur);
+  console.log(amount);
   const options = {
     method: "GET",
     headers: {
@@ -201,14 +209,76 @@ async function getExchangeRate() {
   };
 
   fetch(
-    `https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=ILS&to=${currency}&amount=100`,
+    `https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=${pickedCur}&to=${currency}&amount=${amount}`,
     options
   )
     .then((response) => response.json())
     .then(function (response) {
       console.log(response);
-      document.getElementById("currency-amount").innerHTML = response.result;
+
+      document.getElementById("currency-amount").innerHTML =
+        response.result.toFixed(1);
     })
 
+    .catch((err) => console.error(err));
+}
+
+let pickedCur;
+
+function getAllSymbols() {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "75882334a2mshe48f433583c7d92p16dc85jsn98c3fe3ab2d2",
+      "X-RapidAPI-Host":
+        "currency-conversion-and-exchange-rates.p.rapidapi.com",
+    },
+  };
+
+  fetch(
+    "https://currency-conversion-and-exchange-rates.p.rapidapi.com/symbols",
+    options
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
+      allSymbols = Object.keys(response.symbols).sort();
+      for (let i = 0; i < allSymbols.length; i++) {
+        let optionEl = document.createElement("option");
+        optionEl.setAttribute("value", allSymbols[i]);
+        optionEl.innerHTML = allSymbols[i];
+        document.getElementById("symbol-picker").append(optionEl);
+        if (allSymbols[i] === "ILS") {
+          optionEl.selected = true;
+          console.log("selected!!!!!");
+        }
+      }
+      getNameOfCurrency();
+    })
+    .catch((err) => console.error(err));
+}
+
+function getNameOfCurrency() {
+  let currencyFullName;
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "75882334a2mshe48f433583c7d92p16dc85jsn98c3fe3ab2d2",
+      "X-RapidAPI-Host":
+        "currency-conversion-and-exchange-rates.p.rapidapi.com",
+    },
+  };
+
+  fetch(
+    "https://currency-conversion-and-exchange-rates.p.rapidapi.com/symbols",
+    options
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      currencyFullName = response.symbols[currency];
+      console.log(currencyFullName);
+      document.getElementById("full-name-currency").innerHTML =
+        currencyFullName;
+    })
     .catch((err) => console.error(err));
 }
