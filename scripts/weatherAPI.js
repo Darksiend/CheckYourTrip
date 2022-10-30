@@ -25,7 +25,7 @@ function getCity(event) {
   }
 }
 
-function getCountryDetails() {
+async function getCountryDetails() {
   const options = {
     method: "GET",
     headers: {
@@ -58,7 +58,7 @@ function getCountryDetails() {
     });
 }
 
-function getCoords() {
+async function getCoords() {
   fetch(
     `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIWeatherKey}`
   )
@@ -80,7 +80,7 @@ function getCoords() {
     .catch(function () {});
 }
 
-function getCurrentWeather() {
+async function getCurrentWeather() {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIWeatherKey}&units=metric`
   )
@@ -101,7 +101,7 @@ function getCurrentWeather() {
     .catch((err) => console.error(err));
 }
 //api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
-function createChart() {
+async function createChart() {
   const data = {
     datasets: [
       {
@@ -133,7 +133,7 @@ function createChart() {
   const myChart = new Chart(document.getElementById("myChart"), config);
 }
 
-function getWeatherForChart() {
+async function getWeatherForChart() {
   fetch(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIWeatherKey}&units=metric`
   )
@@ -189,7 +189,7 @@ function turnSpinner() {
   spinner.style.display = "inline-block";
 }
 
-function getExchangeRate() {
+async function getExchangeRate() {
   const options = {
     method: "GET",
     headers: {
