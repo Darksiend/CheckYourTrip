@@ -148,12 +148,13 @@ margin-left: 4px;
 .currency-in-container .country-name {
   margin-left: 5px;
   margin-right: 5px;
-  font-size: 16px;
+  font-size: 28px;
 }
 
 #currency-amount{
   height: 50px;
-  width: 100%;
+  min-width:  75px;
+  max-width: 100px;
   background-color: white;
   display: flex;
   align-items: center
@@ -208,6 +209,8 @@ margin-left: 4px;
   background-color: orange;
   font-size: 24px;
   color: white;
+  outline: none;
+  border: none;
 }
 
 .currency-of-country-container{
@@ -235,7 +238,10 @@ margin-left: 4px;
 
 #exchange-input{
   height: 50px;
-  width: 50px;
+  width: 75px;
+  font-size: 24px;
+  outline: none;
+  border: none;
 }
 
 #full-name-currency {

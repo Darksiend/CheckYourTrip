@@ -107,6 +107,7 @@ async function createChart() {
   const data = {
     datasets: [
       {
+        label: "Temperature",
         backgroundColor: "#FFB52E",
         borderColor: "#FFB52E",
         data: temps,
