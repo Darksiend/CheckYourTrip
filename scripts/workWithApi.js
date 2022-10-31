@@ -171,9 +171,9 @@ function validateDateOfForecast(elem) {
     12: "December",
   };
   let time = elem.split(" ")[1].split(":").slice(0, 2).join(":");
-  let date = elem.split(" ")[0].split("-").slice(1, 3);
-  date[0] = months[date[0]];
-  console.log(date);
+  let date = elem.split(" ")[0].split("-").slice(1, 3).join(".");
+  // date[0] = months[date[0]];
+
   dateTime = date + " " + time;
   return dateTime;
 }

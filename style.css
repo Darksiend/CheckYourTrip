@@ -315,6 +315,10 @@ margin-left: 4px;
     width: 375px;
     height: 400px;
   }
+
+  .currency-in-container .country-name{
+    font-size: 16px;
+  }
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
