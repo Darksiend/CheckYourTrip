@@ -69,6 +69,11 @@ body {
   justify-content: space-evenly;
   margin-top: 50px;
 }
+
+#map {
+  height: 400px;
+  width: 400px;
+}
 .text-in-city-div {
   font-size: 26px;
 

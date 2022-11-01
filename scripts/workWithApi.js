@@ -19,6 +19,7 @@ function getCity(event) {
     city = inputField.value;
     console.log(inputField.value);
     getCoords();
+    mapInit();
     turnSpinner();
     getAllSymbols();
     setTimeout(function () {
@@ -60,7 +61,7 @@ async function getCountryDetails() {
 }
 
 async function getCoords() {
-  fetch(
+  await fetch(
     `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIWeatherKey}`
   )
     .then((response) => response.json())
@@ -82,7 +83,7 @@ async function getCoords() {
 }
 
 async function getCurrentWeather() {
-  fetch(
+  await fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIWeatherKey}&units=metric`
   )
     .then((response) => response.json())
@@ -103,7 +104,7 @@ async function getCurrentWeather() {
 }
 
 //api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
-async function createChart() {
+function createChart() {
   const data = {
     datasets: [
       {
@@ -137,7 +138,7 @@ async function createChart() {
 }
 
 async function getWeatherForChart() {
-  fetch(
+  await fetch(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIWeatherKey}&units=metric`
   )
     .then((response) => response.json())
@@ -209,7 +210,7 @@ async function getExchangeRate() {
     },
   };
 
-  fetch(
+  await fetch(
     `https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=${pickedCur}&to=${currency}&amount=${amount}`,
     options
   )
@@ -226,7 +227,7 @@ async function getExchangeRate() {
 
 let pickedCur;
 
-function getAllSymbols() {
+async function getAllSymbols() {
   const options = {
     method: "GET",
     headers: {
@@ -236,7 +237,7 @@ function getAllSymbols() {
     },
   };
 
-  fetch(
+  await fetch(
     "https://currency-conversion-and-exchange-rates.p.rapidapi.com/symbols",
     options
   )
@@ -259,7 +260,7 @@ function getAllSymbols() {
     .catch((err) => console.error(err));
 }
 
-function getNameOfCurrency() {
+async function getNameOfCurrency() {
   let currencyFullName;
   const options = {
     method: "GET",
@@ -270,7 +271,7 @@ function getNameOfCurrency() {
     },
   };
 
-  fetch(
+  await fetch(
     "https://currency-conversion-and-exchange-rates.p.rapidapi.com/symbols",
     options
   )
@@ -282,4 +283,13 @@ function getNameOfCurrency() {
         currencyFullName;
     })
     .catch((err) => console.error(err));
+}
+
+function mapInit() {
+  var map = L.map("map").setView([51.505, -0.09], 13);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 24,
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }).addTo(map);
 }
