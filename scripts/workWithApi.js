@@ -19,7 +19,7 @@ function getCity(event) {
     city = inputField.value;
     console.log(inputField.value);
     getCoords();
-    mapInit();
+
     turnSpinner();
     getAllSymbols();
     setTimeout(function () {
@@ -185,7 +185,9 @@ function turnDisplay(id) {
   document.getElementById("input-city-form").style.display = "none";
 
   let el = document.getElementById(id);
+
   el.style.display = "flex";
+  initMap();
 }
 
 function turnSpinner() {
@@ -285,11 +287,13 @@ async function getNameOfCurrency() {
     .catch((err) => console.error(err));
 }
 
-function mapInit() {
-  var map = L.map("map").setView([51.505, -0.09], 13);
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 24,
+function initMap() {
+  const map = L.map("map").setView([lat, lon], 13);
+  const tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
+
+  map.invalidateSize();
 }

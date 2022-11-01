@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CheckMyTrip.</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+          integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+          crossorigin=""/>
     <link rel="stylesheet" href="style.css" />
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
       integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
@@ -13,9 +17,7 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjD3-BRNdly2U2_kQstobPNSALiD8aZCs&libraries=places&language=en"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-          integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
-          crossorigin=""/>
+
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
             integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
             crossorigin=""></script>
@@ -43,7 +45,8 @@
         <div class="country-name"></div>
         <div id="flag-of-country"></div>
       </div>
-      <div id="map"></div>
+      <div id="map-container"><div id="map"></div></div>
+
       <div id="current-temp-container">
         <div class="current-temp-div-text">Current temp in</div>
         <div class="city-name city-name-small"></div>
@@ -67,6 +70,7 @@
       </div>
     </div>
   </body>
+
   <script src="scripts/script.js"></script>
 
   <script src="scripts/googleMapsApi.js"></script>

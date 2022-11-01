@@ -71,8 +71,16 @@ body {
 }
 
 #map {
-  height: 400px;
-  width: 400px;
+  height: 500px;
+
+}
+
+#map-container{
+  height: 506px;
+  width: 80%;
+  border: 3px solid orange;
+  border-radius: 6px;
+  margin-top: 25px;
 }
 .text-in-city-div {
   font-size: 26px;
