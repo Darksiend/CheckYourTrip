@@ -1,0 +1,12 @@
+
+
+Hello Anton This is your Hackaton feedback.
+
+I really liked your project. Is using very well API fetch infromation creating a lot of features realted with a city.
+You are also using very well DOM manipulation, form handling and events. Also liked the styling of your page and the fact
+that it was responsive to. I was only able to retrieve one city information i guess because of the api being free.
+Well done implementing all the knowledge acquired in the course. 
+You can add a button that let the user go back to the home page and pick a different city.
+
+
+Congratulations on your project you did a very good job. 
