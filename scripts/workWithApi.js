@@ -1,5 +1,5 @@
 let inpuCityForm = document.getElementById("input-city-form");
-const APIWeatherKey = "abe55f95b925a7dd5653ef7f8147bd6b";
+
 
 inpuCityForm.addEventListener("submit", getCity);
 let temps = [];
@@ -50,8 +50,12 @@ async function getCountryDetails() {
       ).style.backgroundImage = `url(${response.data.flagImageUri})`;
 
       document.getElementById("currency-of-country").innerHTML = currency;
-      // document.getElementById("country-name").innerHTML = response.data.name;
-      for (i = 0; i < document.querySelectorAll(".country-name").length; i++) {
+
+      for (
+        let i = 0;
+        i < document.querySelectorAll(".country-name").length;
+        i++
+      ) {
         document.querySelectorAll(".country-name")[i].innerHTML =
           response.data.name;
       }
@@ -68,7 +72,7 @@ async function getCoords() {
     .then(function (data) {
       console.log(data);
       //document.getElementById("city-name").innerHTML = data[0].name;
-      for (i = 0; i < document.querySelectorAll(".city-name").length; i++) {
+      for (let i = 0; i < document.querySelectorAll(".city-name").length; i++) {
         document.querySelectorAll(".city-name")[i].innerHTML = data[0].name;
       }
 
@@ -157,25 +161,10 @@ async function getWeatherForChart() {
 }
 
 function validateDateOfForecast(elem) {
-  let months = {
-    1: "January",
-    2: "February",
-    3: "March",
-    4: "April",
-    5: "May",
-    6: "June",
-    7: "July",
-    8: "August",
-    9: "September",
-    10: "October",
-    11: "November",
-    12: "December",
-  };
   let time = elem.split(" ")[1].split(":").slice(0, 2).join(":");
   let date = elem.split(" ")[0].split("-").slice(1, 3).join(".");
-  // date[0] = months[date[0]];
 
-  dateTime = date + " " + time;
+  let dateTime = date + " " + time;
   return dateTime;
 }
 
