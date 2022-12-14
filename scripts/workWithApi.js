@@ -1,6 +1,6 @@
 let inpuCityForm = document.getElementById("input-city-form");
 
-let APIWeatherKey = ''
+let APIWeatherKey = 'abe55f95b925a7dd5653ef7f8147bd6b'
 inpuCityForm.addEventListener("submit", getCity);
 let temps = [];
 let labelsArr = [];
