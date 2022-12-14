@@ -1,5 +1,5 @@
 let inpuCityForm = document.getElementById("input-city-form");
-
+let APIWeatherKey = process.env.APIWeatherKey
 
 inpuCityForm.addEventListener("submit", getCity);
 let temps = [];
